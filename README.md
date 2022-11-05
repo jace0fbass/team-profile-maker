@@ -1,4 +1,12 @@
 # 10 Object-Oriented Programming: Team Profile Generator
+## Deployed Link
+https://jace0fbass.github.io/team-profile-maker/
+
+## Walkthrough
+
+
+## Description
+
 
 ## Your Task
 
