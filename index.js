@@ -1,5 +1,9 @@
-import jest from "jest";
-import inquirer from "inquirer";
+const inquirer = require('inquirer')
+const fs = require('fs')
+const generateHTML = require('./src/generateHTML')
+
+
+
 
 inquirer.prompt([
   {
