@@ -39,6 +39,22 @@ Profile.prototype.startPrompt = function() {
     this.employee = new Manager(name, id, email, office)
     this.employee.role = this.employee.getRole()
     this.employeeArr.push(this.employee)
+    this.secondPrompt()
   })
-
 };
+
+Profile.prototype.secondPrompt = function() {
+  inquirer.prompt({
+    type: 'checkbox',
+    message: 'Add more team members',
+    choices: ['Engineer', 'Intern', 'Finish']
+  })
+  .then(({add}) => {
+    if(add === 'Engineer') {
+      this.EngineerPrompt()
+    } else if (add === 'Intern'){
+      this.internPrompt()
+    } else {this.writePage()
+    }
+  })
+}
