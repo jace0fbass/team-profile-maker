@@ -91,3 +91,33 @@ Profile.prototype.internPrompt = function() {
       this.secondPrompt()
     })
 }
+
+Profile.prototype.engineerPrompt = function() {
+  inquirer.prompt(
+    {
+    type: "text",
+    message: "Enter engineer's name.",
+    name: "name"
+    },
+    {
+    type: "text",
+    message: "Enter engineer's ID number.",
+    name: "id"
+    },
+    {
+    type: "text",
+    message: "Enter engineer's email",
+    name: "email"
+    },
+    {
+    type: "text",
+    message: "Enter engineer's Github username.",
+    name: "github"
+    })
+    .then(({ name, id, email, github }) => {
+      this.employee = new Engineer(name, id, email, github)
+      this.employee.role = this.employee.getRole()
+      this.employeeArr.push(this.employee)
+      this.secondPrompt()
+    })
+}
