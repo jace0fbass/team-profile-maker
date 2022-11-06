@@ -4,8 +4,8 @@ it("creates an employee object", () => {
   const employee = new Employee("Jason", "jajones414@gmail.com", "0");
 
   expect(employee.name).toBe("Jason");
-  expect(employee.name).toBe("jajones414@gmail.com");
-  expect(employee.id).toBe("0");
+  expect(employee.id).toBe("jajones414@gmail.com");
+  expect(employee.email).toBe("0");
 });
 
 it("asks for employee's id name", () => {

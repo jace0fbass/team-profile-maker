@@ -1,5 +1,5 @@
-const inquirer = require("inquirer");
-const fs = require("fs");
+const inquirer = import("inquirer");
+const fs = import("fs");
 const generateHTML = require("./src/generateHTML");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
@@ -11,7 +11,7 @@ function Profile() {
   this.employee;
 }
 
-Profile.prototype.startPrompt = function () {
+Profile.prototype.startPrompt = function() {
   inquirer
     .prompt([
       {
@@ -33,7 +33,7 @@ Profile.prototype.startPrompt = function () {
         type: "text",
         message: "Enter team manager's office number.",
         name: "office",
-      },
+      }
     ])
 
     .then(({ name, id, email, office }) => {
@@ -66,7 +66,7 @@ Profile.prototype.secondPrompt = function () {
 
 Profile.prototype.internPrompt = function () {
   inquirer
-    .prompt(
+    .prompt([
       {
         type: "text",
         message: "Enter intern's name.",
@@ -87,7 +87,7 @@ Profile.prototype.internPrompt = function () {
         message: "Enter intern's school.",
         name: "school",
       }
-    )
+    ])
 
     .then(({ name, id, email, school }) => {
       this.employee = new Intern(name, id, email, school);
@@ -99,7 +99,7 @@ Profile.prototype.internPrompt = function () {
 
 Profile.prototype.engineerPrompt = function () {
   inquirer
-    .prompt(
+    .prompt([
       {
         type: "text",
         message: "Enter engineer's name.",
@@ -120,7 +120,7 @@ Profile.prototype.engineerPrompt = function () {
         message: "Enter engineer's Github username.",
         name: "github",
       }
-    )
+    ])
     .then(({ name, id, email, github }) => {
       this.employee = new Engineer(name, id, email, github);
       this.employee.role = this.employee.getRole();

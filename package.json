@@ -1,8 +1,11 @@
 {
   "name": "team-profile-maker",
   "version": "1.0.0",
-  "description": "## Your Task",
+  "description": "",
   "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
   "scripts": {
     "test": "jest"
   },
@@ -17,10 +20,10 @@
     "url": "https://github.com/jace0fbass/team-profile-maker/issues"
   },
   "homepage": "https://github.com/jace0fbass/team-profile-maker#readme",
-  "devDependencies": {
-    "jest": "^29.2.2"
-  },
   "dependencies": {
     "inquirer": "^9.1.4"
+  },
+  "devDependencies": {
+    "jest": "^29.2.2"
   }
 }

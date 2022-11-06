@@ -1,16 +1,20 @@
 //function to create card with info per role
 function renderCard(employeeArr) {
-    let cardArr = []
-    for(i = 0; i < employeeArr.length; i++) {
-        let answer
-        if(employeeArr[i].getRole() === 'Manager') {
-            answer = 'Office Number: ' + employeeArr[i].getOffice()
-        } else if (employeeArr[i].getRole() === 'Engineer') {
-            answer = 'Github: <a href="https://github.com/' + employeeArr[i].getGithub() + employeeArr[i].getGithub() + '</a>'
-        } else if (employeeArr[i].getRole() === 'Intern') {
-            answer = 'School: ' + employeeArr[i].getSchool()
-        }
-        let employeeCard = `
+  let cardArr = [];
+  for (i = 0; i < employeeArr.length; i++) {
+    let answer;
+    if (employeeArr[i].getRole() === "Manager") {
+      answer = "Office Number: " + employeeArr[i].getOffice();
+    } else if (employeeArr[i].getRole() === "Engineer") {
+      answer =
+        'Github: <a href="https://github.com/' +
+        employeeArr[i].getGithub() +
+        employeeArr[i].getGithub() +
+        "</a>";
+    } else if (employeeArr[i].getRole() === "Intern") {
+      answer = "School: " + employeeArr[i].getSchool();
+    }
+    let employeeCard = `
         <article class="card col-3 m-2">
         <div class="card-header background">
             <h2>${employeeArr[i].getName()}</h2>
@@ -18,19 +22,20 @@ function renderCard(employeeArr) {
         </div>
         <div class="card-body">
             <p>Employee: ID: ${employeeArr[i].getId()}</p>
-            <p>Email: <a href=mailto:"${employeeArr[i].getEmail()}">${employeeArr[i].getEmail}</a></p>
+            <p>Email: <a href=mailto:"${employeeArr[i].getEmail()}">${
+      employeeArr[i].getEmail
+    }</a></p>
             <p>${answer}</p>
         </div>
         </article>
-        `
-        cardArr.push(employeeCard)
-    }
-    return cardArr.join('')
+        `;
+    cardArr.push(employeeCard);
+  }
+  return cardArr.join("");
 }
 
-
 function generateHype(employeeArr) {
-    return `
+  return `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -50,6 +55,6 @@ function generateHype(employeeArr) {
         </main>
     </body>
     </html>
-    `
+    `;
 }
-module.exports = generateHype
+module.exports = generateHype;
