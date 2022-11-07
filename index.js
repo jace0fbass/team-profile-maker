@@ -11,9 +11,8 @@ function Profile() {
   this.employee;
 }
 
-Profile.prototype.startPrompt = function() {
-  inquirer
-    .prompt([
+Profile.prototype.startPrompt = function( ) {
+  inquirer.prompt([
       {
         type: "text",
         message: "Enter team manager's name.",
@@ -33,7 +32,7 @@ Profile.prototype.startPrompt = function() {
         type: "text",
         message: "Enter team manager's office number.",
         name: "office",
-      }
+      },
     ])
 
     .then(({ name, id, email, office }) => {
@@ -86,7 +85,7 @@ Profile.prototype.internPrompt = function () {
         type: "text",
         message: "Enter intern's school.",
         name: "school",
-      }
+      },
     ])
 
     .then(({ name, id, email, school }) => {
@@ -119,7 +118,7 @@ Profile.prototype.engineerPrompt = function () {
         type: "text",
         message: "Enter engineer's Github username.",
         name: "github",
-      }
+      },
     ])
     .then(({ name, id, email, github }) => {
       this.employee = new Engineer(name, id, email, github);
