@@ -1,11 +1,11 @@
 const Employee = require("../lib/Employee");
 
 it("creates an employee object", () => {
-  const employee = new Employee("Jason", "jajones414@gmail.com", "0");
+  const employee = new Employee("Jason", "0", "jajones414@gmail.com");
 
   expect(employee.name).toBe("Jason");
-  expect(employee.id).toBe("jajones414@gmail.com");
-  expect(employee.email).toBe("0");
+  expect(employee.id).toBe("0");
+  expect(employee.email).toBe("jajones414@gmail.com");
 });
 
 it("asks for employee's id name", () => {
@@ -29,5 +29,5 @@ it("asks for employee's id number", () => {
 it("asks for employee's role", () => {
   const employee = new Employee("Jason");
 
-  expect(employee.getRole()).toBe('employee');
+  expect(employee.getRole()).toBe(employee.role);
 });

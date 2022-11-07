@@ -4,14 +4,10 @@ const generateHTML = require("./src/generateHTML");
 const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
-const { profile } = require("console");
 
-function Profile() {
-  this.employeeArr = [];
-  this.employee;
-}
+const employeeArr = [];
 
-Profile.prototype.startPrompt = function( ) {
+const startPrompt = () => {
   inquirer.prompt([
       {
         type: "text",
@@ -43,9 +39,8 @@ Profile.prototype.startPrompt = function( ) {
     });
 };
 
-Profile.prototype.secondPrompt = function () {
-  inquirer
-    .prompt({
+const secondPrompt = () => {
+  inquirer.prompt({
       type: "checkbox",
       message: "Add more team members",
       choices: ["Engineer", "Intern", "Finish"],
@@ -63,9 +58,8 @@ Profile.prototype.secondPrompt = function () {
     });
 };
 
-Profile.prototype.internPrompt = function () {
-  inquirer
-    .prompt([
+const internPrompt = () => {
+  inquirer.prompt([
       {
         type: "text",
         message: "Enter intern's name.",
@@ -96,9 +90,8 @@ Profile.prototype.internPrompt = function () {
     });
 };
 
-Profile.prototype.engineerPrompt = function () {
-  inquirer
-    .prompt([
+const engineerPrompt = () => {
+  inquirer.prompt([
       {
         type: "text",
         message: "Enter engineer's name.",
@@ -128,11 +121,11 @@ Profile.prototype.engineerPrompt = function () {
     });
 };
 
-Profile.prototype.writePage = function () {
+const writePage = () => {
   const pageHTML = generateHTML(this.employeeArr);
   fs.writeFile("./dist/index.html", pageHTML, (err) => {
     if (err) throw err;
   });
 };
 
-new Profile().startPrompt();
+startPrompt();
