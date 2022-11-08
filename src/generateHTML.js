@@ -58,4 +58,4 @@ function generateHype(employeeArr) {
     </html>
     `;
 }
-module.exports = generateHype;
+export default generateHype;

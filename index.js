@@ -1,13 +1,15 @@
 const inquirer = import("inquirer");
 const fs = import("fs");
-const generateHTML = require("./src/generateHTML");
-const Manager = require("./lib/Manager");
-const Intern = require("./lib/Intern");
-const Engineer = require("./lib/Engineer");
+const generateHTML = import("./src/generateHTML");
+const Manager = import("./lib/Manager");
+const Intern = import("./lib/Intern");
+const Engineer = import("./lib/Engineer");
 
 // was in a cs5 function Profile() need to work into cs6 or just put it all back to cs5?
-const employeeArr = [];
-
+function Profile() {
+  this.employeeArr = [];
+  this.employee
+}
 // starts the prompts with manager info
 const startPrompt = () => {
   inquirer.prompt([
