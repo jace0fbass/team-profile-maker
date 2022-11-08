@@ -8,7 +8,7 @@ function renderCard(employeeArr) {
     } else if (employeeArr[i].getRole() === "Engineer") {
       answer =
         'Github: <a href="https://github.com/' +
-        employeeArr[i].getGithub() +
+        employeeArr[i].getGithub() + '">' +
         employeeArr[i].getGithub() +
         "</a>";
     } else if (employeeArr[i].getRole() === "Intern") {
