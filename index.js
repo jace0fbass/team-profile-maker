@@ -5,8 +5,10 @@ const Manager = require("./lib/Manager");
 const Intern = require("./lib/Intern");
 const Engineer = require("./lib/Engineer");
 
+// was in a cs5 function Profile() need to work into cs6 or just put it all back to cs5?
 const employeeArr = [];
 
+// starts the prompts with manager info
 const startPrompt = () => {
   inquirer.prompt([
       {
@@ -30,15 +32,15 @@ const startPrompt = () => {
         name: "office",
       },
     ])
-
-    .then(({ name, id, email, office }) => {
+// pushes entered info into employee and starts the next prompt
+    .then(( name, id, email, office ) => {
       this.employee = new Manager(name, id, email, office);
       this.employee.role = this.employee.getRole();
       this.employeeArr.push(this.employee);
       this.secondPrompt();
     });
 };
-
+// starts second prompt 
 const secondPrompt = () => {
   inquirer.prompt({
       type: "checkbox",
@@ -57,7 +59,7 @@ const secondPrompt = () => {
       }
     });
 };
-
+// prompts for intern info
 const internPrompt = () => {
   inquirer.prompt([
       {
@@ -89,7 +91,7 @@ const internPrompt = () => {
       this.secondPrompt();
     });
 };
-
+// prompts for engineer info
 const engineerPrompt = () => {
   inquirer.prompt([
       {
@@ -120,7 +122,7 @@ const engineerPrompt = () => {
       this.secondPrompt();
     });
 };
-
+// writes generated html page
 const writePage = () => {
   const pageHTML = generateHTML(this.employeeArr);
   fs.writeFile("./dist/index.html", pageHTML, (err) => {

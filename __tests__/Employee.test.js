@@ -28,6 +28,6 @@ it("asks for employee's id number", () => {
 
 it("asks for employee's role", () => {
   const employee = new Employee("Jason");
-
-  expect(employee.getRole()).toBe(employee.role);
+// test failing at .toBe 
+  expect(employee.getRole()).toBe("Employee");
 });

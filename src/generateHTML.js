@@ -1,4 +1,4 @@
-//function to create card with info per role
+// gathers info on employee to decide which profile to create for them
 function renderCard(employeeArr) {
   let cardArr = [];
   for (i = 0; i < employeeArr.length; i++) {
@@ -14,6 +14,7 @@ function renderCard(employeeArr) {
     } else if (employeeArr[i].getRole() === "Intern") {
       answer = "School: " + employeeArr[i].getSchool();
     }
+    // dynamically creates employee cards with entered info
     let employeeCard = `
         <article class="card col-3 m-2">
         <div class="card-header background">
@@ -33,7 +34,7 @@ function renderCard(employeeArr) {
   }
   return cardArr.join("");
 }
-
+// generates main html file
 function generateHype(employeeArr) {
   return `
     <!DOCTYPE html>

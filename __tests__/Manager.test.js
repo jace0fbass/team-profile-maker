@@ -9,5 +9,5 @@ it("creates a manager object and retrieves office number", () => {
 it("gets employee role", () => {
   const employee = new Manager("Lauren");
 
-  expect(employee.getRole()).toBe('Manager');
+  expect(employee.getRole()).toBe("Manager");
 });
