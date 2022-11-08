@@ -11,6 +11,7 @@ function Profile() {
   this.employee
 }
 // starts the prompts with manager info
+// was Profile.protoype.startPrompt = function()
 const startPrompt = () => {
   inquirer.prompt([
       {
