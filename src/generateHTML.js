@@ -19,8 +19,8 @@ function renderCard(employeeArr) {
     let employeeCard = `
         <article class="card col-3 m-2">
         <div class="card-header background">
-            <h2>${getName()}</h2>
-            <h4>${employeeArr[i].getRole}</h4>
+            <h2>${employeeArr[i].getName()}</h2>
+            <h4>${employeeArr[i].getRole()}</h4>
         </div>
         <div class="card-body">
             <p>Employee: ID: ${employeeArr[i].getId()}</p>

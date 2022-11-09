@@ -95,7 +95,6 @@ function internPrompt() {
       });
     }
 
-
 // prompts for engineer info
 function engineerPrompt() {
   inquirer
