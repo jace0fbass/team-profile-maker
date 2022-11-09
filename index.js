@@ -30,6 +30,30 @@ const Engineer = require("./lib/Engineer.js");
 // starts the prompts with manager info
 let employeeArr = [];
 
+// starts second prompt
+function secondPrompt() {
+  inquirer
+    .prompt({
+      type: "list",
+      message: "Add more team members",
+      choices: ["Engineer", "Intern", "Finish"],
+      name: "emp",
+    })
+
+    .then(({ emp }) => {
+      if (emp === "Engineer") {
+        engineerPrompt();
+      } else if (emp === "Intern") {
+        internPrompt();
+      } else {
+        writePage();
+      }
+    });
+}
+
+
+
+
 function startPrompt() {
   inquirer
     .prompt([
@@ -61,26 +85,7 @@ function startPrompt() {
       secondPrompt();
     });
 }
-// starts second prompt
-function secondPrompt() {
-  inquirer
-    .prompt({
-      type: "checkbox",
-      message: "Add more team members",
-      choices: ["Engineer", "Intern", "Finish"],
-      name: "name",
-    })
 
-    .then(({ add }) => {
-      if (add === "Engineer") {
-        engineerPrompt();
-      } else if (add === "Intern") {
-        internPrompt();
-      } else {
-        writePage();
-      }
-    });
-}
 // prompts for intern info
 function internPrompt() {
   inquirer
@@ -152,22 +157,6 @@ function writePage() {
   fs.writeFile("./dist/index.html", pageHTML, (err) => {
     if (err) throw err;
   });
-}
-
-function Profile(
-  startPrompt,
-  secondPrompt,
-  internPrompt,
-  engineerPrompt,
-  writePage
-) {
-  this.startPrompt = startPrompt();
-  this.secondPrompt = secondPrompt();
-  this.internPrompt = internPrompt();
-  this.engineerPrompt = engineerPrompt();
-  this.writePage = writePage();
-  this.employeeArr = [];
-  this.employee;
 }
 
 startPrompt();

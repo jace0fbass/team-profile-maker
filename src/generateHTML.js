@@ -36,7 +36,7 @@ function renderCard(employeeArr) {
   return cardArr.join("");
 }
 // generates main html file
-function generateHTML(employeeArr) {
+const generateHTML = (employeeArr) => {
   return `
     <!DOCTYPE html>
     <html lang="en">
