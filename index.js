@@ -4,29 +4,7 @@ const generateHTML = require("./src/generateHTML.js");
 const Manager = require("./lib/Manager.js");
 const Intern = require("./lib/Intern.js");
 const Engineer = require("./lib/Engineer.js");
-// import inquirer from "inquirer";
-// import fs from "fs";
-// import generateHTML from "./src/generateHTML.js";
-// import Manager from "./lib/Manager.js";
-// import Intern from "./lib/Intern.js";
-// import Engineer from "./lib/Engineer.js";
 
-// was in a cs5 function Profile() need to work into cs6 or just put it all back to cs5?
-// function Profile(
-//   startPrompt,
-//   secondPrompt,
-//   internPrompt,
-//   engineerPrompt,
-//   writePage
-// ) {
-//   this.startPrompt = startPrompt();
-//   this.secondPrompt = secondPrompt();
-//   this.internPrompt = internPrompt();
-//   this.engineerPrompt = engineerPrompt();
-//   this.writePage = writePage();
-//   this.employeeArr = [];
-//   this.employee;
-// }
 // starts the prompts with manager info
 let employeeArr = [];
 
@@ -50,9 +28,6 @@ function secondPrompt() {
       }
     });
 }
-
-
-
 
 function startPrompt() {
   inquirer
@@ -78,6 +53,7 @@ function startPrompt() {
         name: "office",
       },
     ])
+
     // pushes entered info into employee and starts the next prompt
     .then((name, id, email, office) => {
       let employee = new Manager(name, id, email, office);
@@ -119,6 +95,7 @@ function internPrompt() {
       this.secondPrompt();
     });
 }
+
 // prompts for engineer info
 function engineerPrompt() {
   inquirer
@@ -151,6 +128,7 @@ function engineerPrompt() {
       this.secondPrompt();
     });
 }
+
 // writes generated html page
 function writePage() {
   const pageHTML = generateHTML(employeeArr);

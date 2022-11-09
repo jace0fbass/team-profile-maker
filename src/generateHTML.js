@@ -20,13 +20,11 @@ function renderCard(employeeArr) {
         <article class="card col-3 m-2">
         <div class="card-header background">
             <h2>${employeeArr[i].getName()}</h2>
-            <h4>${employeeArr[i].getRole()}</h4>
+            <h4>${employeeArr[i].getRole}</h4>
         </div>
         <div class="card-body">
             <p>Employee: ID: ${employeeArr[i].getId()}</p>
-            <p>Email: <a href=mailto:"${employeeArr[i].getEmail()}">${
-      employeeArr[i].getEmail
-    }</a></p>
+            <p>Email: <a href=mailto:"${employeeArr[i].getEmail()}"></a></p>
             <p>${answer}</p>
         </div>
         </article>
@@ -58,5 +56,5 @@ const generateHTML = (employeeArr) => {
     </body>
     </html>
     `;
-}
+};
 module.exports = generateHTML;
