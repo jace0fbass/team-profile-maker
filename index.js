@@ -6,7 +6,7 @@ const Intern = require("./lib/Intern.js");
 const Engineer = require("./lib/Engineer.js");
 
 // starts the prompts with manager info
-let answers = [];
+let employeeArr = [];
 
 
 function startPrompt() {
@@ -37,7 +37,7 @@ function startPrompt() {
     // pushes entered info into employee and starts the next prompt
     .then((name, id, email, office) => {
       let employee = new Manager(name, id, email, office);
-      answers.push(employee);
+      employeeArr.push(employee);
       secondPrompt();
     });
   }
@@ -91,7 +91,7 @@ function startPrompt() {
 
       .then((name, id, email, school) => {
         let employee = new Intern(name, id, email, school);
-        answers.push(employee);
+        employeeArr.push(employee);
         secondPrompt();
       });
     }
@@ -124,14 +124,14 @@ function engineerPrompt() {
 
       .then((name, id, email, github) => {
         let employee = new Engineer(name, id, email, github);
-        answers.push(employee);
+        employeeArr.push(employee);
         secondPrompt();
       });
 }
 
 // writes generated html page
 function writePage() {
-  const pageHTML = generateHTML(answers);
+  const pageHTML = generateHTML(employeeArr);
   fs.writeFile("./dist/index.html", pageHTML, (err) => {
     if (err) throw err;
   });

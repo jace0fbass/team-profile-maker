@@ -1,30 +1,30 @@
 // gathers info on employee to decide which profile to create for them
-function renderCard(answers) {
+function renderCard(employeeArr) {
   let cardArr = [];
-  for (i = 0; i < answers.length; i++) {
+  for (i = 0; i < employeeArr.length; i++) {
     let answer;
-    if (answers[i].getRole() === "Manager") {
-      answer = "Office Number: " + answers[i].getOffice();
-    } else if (answers[i].getRole() === "Engineer") {
+    if (employeeArr[i].getRole() === "Manager") {
+      answer = "Office Number: " + employeeArr[i].getOffice();
+    } else if (employeeArr[i].getRole() === "Engineer") {
       answer =
         'Github: <a href="https://github.com/' +
-        answers[i].getGithub() +
+        employeeArr[i].getGithub() +
         '">' +
-        answers[i].getGithub() +
+        employeeArr[i].getGithub() +
         "</a>";
-    } else if (answers[i].getRole() === "Intern") {
-      answer = "School: " + answers[i].getSchool();
+    } else if (employeeArr[i].getRole() === "Intern") {
+      answer = "School: " + employeeArr[i].getSchool();
     }
     // dynamically creates employee cards with entered info
     let employeeCard = `
         <article class="card col-3 m-2">
         <div class="card-header background">
-            <h2>${answers[i].getName()}</h2>
-            <h4>${answers[i].getRole()}</h4>
+            <h2>${employeeArr[i].getName()}</h2>
+            <h4>${employeeArr[i].getRole()}</h4>
         </div>
         <div class="card-body">
-            <p>Employee: ID: ${answers[i].getId()}</p>
-            <p>Email: <a href="mailto:${answers[i].getEmail()}"></a></p>
+            <p>Employee: ID: ${employeeArr[i].getId()}</p>
+            <p>Email: <a href="mailto:${employeeArr[i].getEmail()}"></a></p>
             <p>${answer}</p>
         </div>
         </article>
@@ -34,7 +34,7 @@ function renderCard(answers) {
   return cardArr.join("");
 }
 // generates main html file
-const generateHTML = (answers) => {
+const generateHTML = (employeeArr) => {
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -48,10 +48,10 @@ const generateHTML = (answers) => {
     </head>
     <body>
         <header>
-            <h1>${answers[0].name}'s Web Development Team</h1>
+            <h1>${employeeArr[0].name}'s Web Development Team</h1>
         </header>
         <main class="row justify-content-center">
-            ${renderCard(answers)}
+            ${renderCard(employeeArr)}
         </main>
     </body>
     </html>
