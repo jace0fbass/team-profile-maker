@@ -1,19 +1,38 @@
-const inquirer = import("inquirer");
-const fs = import("fs");
-const generateHTML = import("./src/generateHTML");
-const Manager = import("./lib/Manager");
-const Intern = import("./lib/Intern");
-const Engineer = import("./lib/Engineer");
+const inquirer = require("inquirer");
+const fs = require("fs");
+const generateHTML = require("./src/generateHTML.js");
+const Manager = require("./lib/Manager.js");
+const Intern = require("./lib/Intern.js");
+const Engineer = require("./lib/Engineer.js");
+// import inquirer from "inquirer";
+// import fs from "fs";
+// import generateHTML from "./src/generateHTML.js";
+// import Manager from "./lib/Manager.js";
+// import Intern from "./lib/Intern.js";
+// import Engineer from "./lib/Engineer.js";
 
 // was in a cs5 function Profile() need to work into cs6 or just put it all back to cs5?
-function Profile() {
-  this.employeeArr = [];
-  this.employee
-}
+// function Profile(
+//   startPrompt,
+//   secondPrompt,
+//   internPrompt,
+//   engineerPrompt,
+//   writePage
+// ) {
+//   this.startPrompt = startPrompt();
+//   this.secondPrompt = secondPrompt();
+//   this.internPrompt = internPrompt();
+//   this.engineerPrompt = engineerPrompt();
+//   this.writePage = writePage();
+//   this.employeeArr = [];
+//   this.employee;
+// }
 // starts the prompts with manager info
-// was Profile.protoype.startPrompt = function()
-const startPrompt = () => {
-  inquirer.prompt([
+let employeeArr = [];
+
+function startPrompt() {
+  inquirer
+    .prompt([
       {
         type: "text",
         message: "Enter team manager's name.",
@@ -35,17 +54,17 @@ const startPrompt = () => {
         name: "office",
       },
     ])
-// pushes entered info into employee and starts the next prompt
-    .then(( name, id, email, office ) => {
-      this.employee = new Manager(name, id, email, office);
-      this.employee.role = this.employee.getRole();
-      this.employeeArr.push(this.employee);
-      this.secondPrompt();
+    // pushes entered info into employee and starts the next prompt
+    .then((name, id, email, office) => {
+      let employee = new Manager(name, id, email, office);
+      employeeArr.push(employee);
+      secondPrompt();
     });
-};
-// starts second prompt 
-const secondPrompt = () => {
-  inquirer.prompt({
+}
+// starts second prompt
+function secondPrompt() {
+  inquirer
+    .prompt({
       type: "checkbox",
       message: "Add more team members",
       choices: ["Engineer", "Intern", "Finish"],
@@ -54,17 +73,18 @@ const secondPrompt = () => {
 
     .then(({ add }) => {
       if (add === "Engineer") {
-        this.EngineerPrompt();
+        engineerPrompt();
       } else if (add === "Intern") {
-        this.internPrompt();
+        internPrompt();
       } else {
-        this.writePage();
+        writePage();
       }
     });
-};
+}
 // prompts for intern info
-const internPrompt = () => {
-  inquirer.prompt([
+function internPrompt() {
+  inquirer
+    .prompt([
       {
         type: "text",
         message: "Enter intern's name.",
@@ -93,10 +113,11 @@ const internPrompt = () => {
       this.employeeArr.push(this.employee);
       this.secondPrompt();
     });
-};
+}
 // prompts for engineer info
-const engineerPrompt = () => {
-  inquirer.prompt([
+function engineerPrompt() {
+  inquirer
+    .prompt([
       {
         type: "text",
         message: "Enter engineer's name.",
@@ -124,13 +145,29 @@ const engineerPrompt = () => {
       this.employeeArr.push(this.employee);
       this.secondPrompt();
     });
-};
+}
 // writes generated html page
-const writePage = () => {
-  const pageHTML = generateHTML(this.employeeArr);
+function writePage() {
+  const pageHTML = generateHTML(employeeArr);
   fs.writeFile("./dist/index.html", pageHTML, (err) => {
     if (err) throw err;
   });
-};
+}
+
+function Profile(
+  startPrompt,
+  secondPrompt,
+  internPrompt,
+  engineerPrompt,
+  writePage
+) {
+  this.startPrompt = startPrompt();
+  this.secondPrompt = secondPrompt();
+  this.internPrompt = internPrompt();
+  this.engineerPrompt = engineerPrompt();
+  this.writePage = writePage();
+  this.employeeArr = [];
+  this.employee;
+}
 
 startPrompt();

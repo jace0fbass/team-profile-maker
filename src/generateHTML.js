@@ -8,7 +8,8 @@ function renderCard(employeeArr) {
     } else if (employeeArr[i].getRole() === "Engineer") {
       answer =
         'Github: <a href="https://github.com/' +
-        employeeArr[i].getGithub() + '">' +
+        employeeArr[i].getGithub() +
+        '">' +
         employeeArr[i].getGithub() +
         "</a>";
     } else if (employeeArr[i].getRole() === "Intern") {
@@ -19,7 +20,7 @@ function renderCard(employeeArr) {
         <article class="card col-3 m-2">
         <div class="card-header background">
             <h2>${employeeArr[i].getName()}</h2>
-            <h4>${employeeArr[i].getRole}</h4>
+            <h4>${employeeArr[i].getRole()}</h4>
         </div>
         <div class="card-body">
             <p>Employee: ID: ${employeeArr[i].getId()}</p>
@@ -35,7 +36,7 @@ function renderCard(employeeArr) {
   return cardArr.join("");
 }
 // generates main html file
-function generateHype(employeeArr) {
+function generateHTML(employeeArr) {
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -58,4 +59,4 @@ function generateHype(employeeArr) {
     </html>
     `;
 }
-export default generateHype;
+module.exports = generateHTML;
