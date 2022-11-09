@@ -88,13 +88,13 @@ function internPrompt() {
       },
     ])
 
-    .then(({ name, id, email, school }) => {
-      this.employee = new Intern(name, id, email, school);
-      this.employee.role = this.employee.getRole();
-      this.employeeArr.push(this.employee);
-      this.secondPrompt();
-    });
-}
+      .then((name, id, email, school) => {
+        let employee = new Intern(name, id, email, school);
+        employeeArr.push(employee);
+        secondPrompt();
+      });
+    }
+
 
 // prompts for engineer info
 function engineerPrompt() {
@@ -121,12 +121,12 @@ function engineerPrompt() {
         name: "github",
       },
     ])
-    .then(({ name, id, email, github }) => {
-      this.employee = new Engineer(name, id, email, github);
-      this.employee.role = this.employee.getRole();
-      this.employeeArr.push(this.employee);
-      this.secondPrompt();
-    });
+
+      .then((name, id, email, github) => {
+        let employee = new Engineer(name, id, email, github);
+        employeeArr.push(employee);
+        secondPrompt();
+      });
 }
 
 // writes generated html page
