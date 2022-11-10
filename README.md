@@ -3,9 +3,9 @@
 ## Walkthrough
 ![image](https://user-images.githubusercontent.com/110749039/201008394-f0dea679-b1f8-4428-91dd-59a96e71936d.png)
 <br>
-https://drive.google.com/file/d/1_6UnVbUtateHS0kqzPlD0-3YswZ-kE53/view
-<br>
 https://user-images.githubusercontent.com/110749039/201009011-f1f734ba-dbec-49e2-b377-f8ed3fb4cf81.mp4
+<br>
+<video src='dist\walkthru.mp4' hieght=780 width=580 autoplay controls/>
 
 ## Screenshot
 <img src="dist\temp-screenshot.jpg" alt="An image of the team profile generator" />
