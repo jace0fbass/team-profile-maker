@@ -1,6 +1,8 @@
 # 10 Object-Oriented Programming: Team Profile Generator
 
 ## Walkthrough
+![image](https://user-images.githubusercontent.com/110749039/201008394-f0dea679-b1f8-4428-91dd-59a96e71936d.png)
+https://drive.google.com/file/d/1_6UnVbUtateHS0kqzPlD0-3YswZ-kE53/view
 
 
 
