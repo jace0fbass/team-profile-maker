@@ -2,29 +2,41 @@
 function renderCard(employeeArr) {
   let cardArr = [];
   for (i = 0; i < employeeArr.length; i++) {
+    let emp;
+    let empId;
+    let email;
     let answer;
     if (employeeArr[i].getRole() === "Manager") {
+      emp = employeeArr[i].getName();
+      empId = employeeArr[i].getId();
+      email = employeeArr[i].getEmail();
       answer = "Office Number: " + employeeArr[i].getOffice();
     } else if (employeeArr[i].getRole() === "Engineer") {
+      emp = employeeArr[i].getName();
+      empId = employeeArr[i].getId();
+      email = employeeArr[i].getEmail();
       answer =
         'Github: <a href="https://github.com/' +
         employeeArr[i].getGithub() +
-        '">' +
+        '/">' +
         employeeArr[i].getGithub() +
         "</a>";
     } else if (employeeArr[i].getRole() === "Intern") {
+      emp = employeeArr[i].getName();
+      empId = employeeArr[i].getId();
+      email = employeeArr[i].getEmail();
       answer = "School: " + employeeArr[i].getSchool();
     }
     // dynamically creates employee cards with entered info
     let employeeCard = `
         <article class="card col-3 m-2">
         <div class="card-header background">
-            <h2>${employeeArr[i].getName()}</h2>
+            <h2>${emp}</h2>
             <h4>${employeeArr[i].getRole()}</h4>
         </div>
         <div class="card-body">
-            <p>Employee: ID: ${employeeArr[i].getId()}</p>
-            <p>Email: <a href="mailto:${employeeArr[i].getEmail()}"></a></p>
+            <p>Employee ID: ${empId}</p>
+            <p>Email: <a href="mailto:${email}"></a></p>
             <p>${answer}</p>
         </div>
         </article>
@@ -48,7 +60,7 @@ const generateHTML = (employeeArr) => {
     </head>
     <body>
         <header>
-            <h1>${employeeArr[0].name}'s Web Development Team</h1>
+            <h1>${employeeArr[0].getName()}'s Web Development Team</h1>
         </header>
         <main class="row justify-content-center">
             ${renderCard(employeeArr)}
