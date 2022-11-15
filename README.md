@@ -4,7 +4,6 @@
 
 https://drive.google.com/file/d/1NSVaGy3eKTBiGqm_-xUN8oEV4V-PXGm-/view
 <br>
-
 <video src='dist\newWalkthrough.mp4' hieght=780 width=580 autoplay controls />
 
 ## Screenshot
