@@ -5,11 +5,11 @@ function renderCards(employeeArr) {
     .map((employee) => {
       let additionalInfo = "";
       if(employee.getRole() === "Manager") {
-        additionalInfo = employee.office
+        additionalInfo = `Office number: ` + employee.office
       } else if (employee.getRole() === "Engineer") {
-        additionalInfo = employee.github
+        additionalInfo = `Github: <a href="https://github.com/` + employee.github + `/">` + employee.github + `</a>`
       } else if (employee.getRole() === "Intern") {
-        additionalInfo = employee.school
+        additionalInfo = `School: ` + employee.school
       }
       console.log(employee);
       return `<article class="card col-3 m-2">
@@ -25,43 +25,6 @@ function renderCards(employeeArr) {
         </article>`;
     })
     .join("");
-  // let cardArr = [];
-  // for (i = 0; i < employeeArr.length; i++) {
-  //   let emp;
-  //   let empId;
-  //   let email;
-  //   let answer;
-  //   let generatedEmps = .filter(employeeArr === true)
-  //   if (employeeArr[i].getRole() === "Manager") {
-  //     emp = employeeArr[i].getName();
-  //     empId = employeeArr[i].getId();
-  //     email = employeeArr[i].getEmail();
-  //     answer = "Office Number: " + employeeArr[i].getOffice();
-
-  //   } else if (employeeArr[i].getRole() === "Engineer") {
-  //     emp = employeeArr[i].getName();
-  //     empId = employeeArr[i].getId();
-  //     email = employeeArr[i].getEmail();
-  //     answer =
-  //       'Github: <a href="https://github.com/' +
-  //       employeeArr[i].getGithub() +
-  //       '/">' +
-  //       employeeArr[i].getGithub() +
-  //       "</a>";
-
-  //   } else if (employeeArr[i].getRole() === "Intern") {
-  //     emp = employeeArr[i].getName();
-  //     empId = employeeArr[i].getId();
-  //     email = employeeArr[i].getEmail();
-  //     answer = "School: " + employeeArr[i].getSchool();
-  //   }
-  //   // dynamically creates employee cards with entered info
-  //   let employeeCard = `
-
-  //       `;
-  //   cardArr.push(employeeCard);
-  // }
-  // return cardArr.join("");
 }
 // generates main html file
 const generateHTML = (employeeArr) => {
