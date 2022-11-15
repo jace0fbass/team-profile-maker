@@ -35,7 +35,7 @@ function startPrompt() {
     ])
     
     // pushes entered info into employee and starts the next prompt
-    .then((name, id, email, office) => {
+    .then(({name, id, email, office}) => {
       let employee = new Manager(name, id, email, office);
       employeeArr.push(employee);
       secondPrompt();
@@ -89,7 +89,7 @@ function startPrompt() {
       },
     ])
 
-      .then((name, id, email, school) => {
+      .then(({name, id, email, school}) => {
         let employee = new Intern(name, id, email, school);
         employeeArr.push(employee);
         secondPrompt();
@@ -122,7 +122,7 @@ function engineerPrompt() {
       },
     ])
 
-      .then((name, id, email, github) => {
+      .then(({name, id, email, github}) => {
         let employee = new Engineer(name, id, email, github);
         employeeArr.push(employee);
         secondPrompt();

@@ -1,49 +1,67 @@
 // gathers info on employee to decide which profile to create for them
-function renderCard(employeeArr) {
-  let cardArr = [];
-  for (i = 0; i < employeeArr.length; i++) {
-    let emp;
-    let empId;
-    let email;
-    let answer;
-    if (employeeArr[i].getRole() === "Manager") {
-      emp = employeeArr[i].getName();
-      empId = employeeArr[i].getId();
-      email = employeeArr[i].getEmail();
-      answer = "Office Number: " + employeeArr[i].getOffice();
-    } else if (employeeArr[i].getRole() === "Engineer") {
-      emp = employeeArr[i].getName();
-      empId = employeeArr[i].getId();
-      email = employeeArr[i].getEmail();
-      answer =
-        'Github: <a href="https://github.com/' +
-        employeeArr[i].getGithub() +
-        '/">' +
-        employeeArr[i].getGithub() +
-        "</a>";
-    } else if (employeeArr[i].getRole() === "Intern") {
-      emp = employeeArr[i].getName();
-      empId = employeeArr[i].getId();
-      email = employeeArr[i].getEmail();
-      answer = "School: " + employeeArr[i].getSchool();
-    }
-    // dynamically creates employee cards with entered info
-    let employeeCard = `
-        <article class="card col-3 m-2">
+function renderCards(employeeArr) {
+  console.log(employeeArr);
+  return employeeArr
+    .map((employee) => {
+      let additionalInfo = "";
+      if(employee.getRole() === "Manager") {
+        additionalInfo = employee.office
+      } else if (employee.getRole() === "Engineer") {
+        additionalInfo = employee.github
+      } else if (employee.getRole() === "Intern") {
+        additionalInfo = employee.school
+      }
+      console.log(employee);
+      return `<article class="card col-3 m-2">
         <div class="card-header background">
-            <h2>${emp}</h2>
-            <h4>${employeeArr[i].getRole()}</h4>
+            <h2>${employee.getName()}</h2>
+            <h4>${employee.getRole()}</h4>
         </div>
         <div class="card-body">
-            <p>Employee ID: ${empId}</p>
-            <p>Email: <a href="mailto:${email}"></a></p>
-            <p>${answer}</p>
+            <p>Employee ID: ${employee.id}</p>
+            <p>Email: <a href="mailto:${employee.email}">${employee.email}</a></p>
+           <p>${additionalInfo}</p>
         </div>
-        </article>
-        `;
-    cardArr.push(employeeCard);
-  }
-  return cardArr.join("");
+        </article>`;
+    })
+    .join("");
+  // let cardArr = [];
+  // for (i = 0; i < employeeArr.length; i++) {
+  //   let emp;
+  //   let empId;
+  //   let email;
+  //   let answer;
+  //   let generatedEmps = .filter(employeeArr === true)
+  //   if (employeeArr[i].getRole() === "Manager") {
+  //     emp = employeeArr[i].getName();
+  //     empId = employeeArr[i].getId();
+  //     email = employeeArr[i].getEmail();
+  //     answer = "Office Number: " + employeeArr[i].getOffice();
+
+  //   } else if (employeeArr[i].getRole() === "Engineer") {
+  //     emp = employeeArr[i].getName();
+  //     empId = employeeArr[i].getId();
+  //     email = employeeArr[i].getEmail();
+  //     answer =
+  //       'Github: <a href="https://github.com/' +
+  //       employeeArr[i].getGithub() +
+  //       '/">' +
+  //       employeeArr[i].getGithub() +
+  //       "</a>";
+
+  //   } else if (employeeArr[i].getRole() === "Intern") {
+  //     emp = employeeArr[i].getName();
+  //     empId = employeeArr[i].getId();
+  //     email = employeeArr[i].getEmail();
+  //     answer = "School: " + employeeArr[i].getSchool();
+  //   }
+  //   // dynamically creates employee cards with entered info
+  //   let employeeCard = `
+
+  //       `;
+  //   cardArr.push(employeeCard);
+  // }
+  // return cardArr.join("");
 }
 // generates main html file
 const generateHTML = (employeeArr) => {
@@ -63,7 +81,7 @@ const generateHTML = (employeeArr) => {
             <h1>${employeeArr[0].getName()}'s Web Development Team</h1>
         </header>
         <main class="row justify-content-center">
-            ${renderCard(employeeArr)}
+            ${renderCards(employeeArr)}
         </main>
     </body>
     </html>
